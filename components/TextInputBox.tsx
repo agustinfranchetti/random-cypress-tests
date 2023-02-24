@@ -1,4 +1,12 @@
-import { Box, Flex, Input, Button, Stack, Center } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Input,
+  Button,
+  Stack,
+  Center,
+  Textarea,
+} from "@chakra-ui/react";
 import { useClipboard } from "@chakra-ui/react";
 import { useState } from "react";
 import { parseText } from "../utils/parseText";
@@ -43,7 +51,7 @@ export const TextInputBox = () => {
               bgColor={"white"}
               type="number"
             />
-            <Input
+            <Textarea
               placeholder="Paste your text here"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
@@ -56,17 +64,15 @@ export const TextInputBox = () => {
             Parse
           </Button>
           <Stack h={"100%"} w={"100%"}>
-            {/* <Button onClick={onCopy} variant="solid" colorScheme="teal">
+            <Button onClick={onCopy} variant="solid" colorScheme="teal">
               {hasCopied ? "Copied" : "Copy"}
-            </Button> */}
-            <Input
+            </Button>
+            <Textarea
               placeholder="Your parsed text will appear here"
               value={value}
               width="100%"
               height="100%"
               bgColor={"white"}
-              wordBreak="break-all"
-              overflowWrap={"break-word"}
             />
           </Stack>
         </Flex>
