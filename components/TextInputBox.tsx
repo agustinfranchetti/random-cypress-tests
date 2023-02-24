@@ -4,7 +4,7 @@ import { useState } from "react";
 import { parseText } from "../utils/parseText";
 export const TextInputBox = () => {
   const [inputText, setInputText] = useState("");
-  const [linesAmmount, setLinesAmmount] = useState(undefined);
+  const [linesAmmount, setLinesAmmount] = useState(0);
   const { onCopy, value, setValue, hasCopied } = useClipboard("");
   const handleParse = () => {
     const parsedText = parseText(inputText, linesAmmount);
@@ -35,7 +35,7 @@ export const TextInputBox = () => {
           <Stack h={"100%"} w={"100%"}>
             <Input
               placeholder="How many lines do you want?"
-              value={linesAmmount}
+              value={linesAmmount > 0 ? linesAmmount : ""}
               onChange={(e) => setLinesAmmount(parseInt(e.target.value))}
               width="100%"
               height="10%"
